@@ -1,0 +1,14 @@
+data/
+reports/
+audiokey-run/
+out/
+.probe/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+dist/
+build/
+.ruff_cache/
+.mypy_cache/
+node_modules/

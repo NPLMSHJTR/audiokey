@@ -1,5 +1,7 @@
 # audiokey
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 **Recognise a clip from five seconds of noisy audio.** `audiokey` builds a
 fingerprint index from spectral peak pairs and votes each query into
 (track, time-offset) space. It reports rank-1 accuracy per distortion condition,
@@ -14,6 +16,15 @@ accuracy 80.0% (48/60)  median latency 11.1 ms  margin 1.63x
   gain     12/12  100%
   noise15  7/12  58%
   noise5   5/12  42%
+```
+
+## Workflow
+
+```mermaid
+flowchart LR
+    A["1. Synthesise Catalogue<br/>(audiokey gen: 12 Tracks + Queries)"] --> B["2. Build STFT & Peak-Pair Index<br/>(Java Dsp.java + Match.java)"]
+    B --> C["3. Vote in (track, offset) Space<br/>(Clean / Gain / Noise 15dB & 5dB)"]
+    C --> D["4. Evaluate Rank-1 Accuracy<br/>(audiokey eval -> reports/)"]
 ```
 
 ## How it works
